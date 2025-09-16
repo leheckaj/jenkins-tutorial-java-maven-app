@@ -1,6 +1,12 @@
 pipeline {
     agent any
     stages {
+       stage('Check repo') {
+          steps {
+            sh 'pwd'
+            sh 'ls -la'
+          }
+        }
         stage('Build') { 
             steps {
                 sh 'mvn -B -DskipTests clean package' 
